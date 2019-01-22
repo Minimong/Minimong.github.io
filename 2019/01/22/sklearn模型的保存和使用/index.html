@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Python,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="NOTELEKS&#39;s BLOG">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="在训练了 scikit-learn 模型后，希望保存模型以避免将来使用时重新训练。sklearn 提供了两种保存模型的方法，具体如下： 使用pickle模块可以使用Python内置的 pickle 模块来保存 sklearn 中的模型： 1234567891011121314151617&amp;gt;&amp;gt;&amp;gt; from sklearn import svm&amp;gt;&amp;gt;&amp;gt; from sk">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sklearn 模型的保存和使用">
+<meta property="og:url" content="http://yoursite.com/2019/01/22/sklearn模型的保存和使用/index.html">
 <meta property="og:site_name" content="NOTELEKS&#39;s BLOG">
+<meta property="og:description" content="在训练了 scikit-learn 模型后，希望保存模型以避免将来使用时重新训练。sklearn 提供了两种保存模型的方法，具体如下： 使用pickle模块可以使用Python内置的 pickle 模块来保存 sklearn 中的模型： 1234567891011121314151617&amp;gt;&amp;gt;&amp;gt; from sklearn import svm&amp;gt;&amp;gt;&amp;gt; from sk">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-22T13:35:32.448Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NOTELEKS&#39;s BLOG">
+<meta name="twitter:title" content="sklearn 模型的保存和使用">
+<meta name="twitter:description" content="在训练了 scikit-learn 模型后，希望保存模型以避免将来使用时重新训练。sklearn 提供了两种保存模型的方法，具体如下： 使用pickle模块可以使用Python内置的 pickle 模块来保存 sklearn 中的模型： 1234567891011121314151617&amp;gt;&amp;gt;&amp;gt; from sklearn import svm&amp;gt;&amp;gt;&amp;gt; from sk">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/22/sklearn模型的保存和使用/">
 
 
 
 
 
-  <title>NOTELEKS's BLOG</title>
+  <title>sklearn 模型的保存和使用 | NOTELEKS's BLOG</title>
   
 
 
@@ -140,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -214,9 +218,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/22/sklearn模型的保存和使用/" itemprop="url">sklearn 模型的保存和使用</a></h1>
+          <h1 class="post-title" itemprop="name headline">sklearn 模型的保存和使用</h1>
         
 
         <div class="post-meta">
@@ -320,9 +322,7 @@
       
 
       
-        
-          
-            <p>在训练了 scikit-learn 模型后，希望保存模型以避免将来使用时重新训练。sklearn 提供了两种保存模型的方法，具体如下：</p>
+        <p>在训练了 scikit-learn 模型后，希望保存模型以避免将来使用时重新训练。sklearn 提供了两种保存模型的方法，具体如下：</p>
 <h2 id="使用pickle模块"><a href="#使用pickle模块" class="headerlink" title="使用pickle模块"></a>使用pickle模块</h2><p>可以使用Python内置的 <a href="https://docs.python.org/3.6/library/pickle.html" target="_blank" rel="noopener"><code>pickle</code></a> 模块来保存 sklearn 中的模型：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>clf = svm.SVC(gamma=<span class="string">'scale'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>iris = datasets.load_iris()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>X, y = iris.data, iris.target</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>clf.fit(X, y)</span><br><span class="line">SVC(C=<span class="number">1.0</span>, cache_size=<span class="number">200</span>, class_weight=<span class="keyword">None</span>, coef0=<span class="number">0.0</span>,</span><br><span class="line">    decision_function_shape=<span class="string">'ovr'</span>, degree=<span class="number">3</span>, gamma=<span class="string">'scale'</span>, kernel=<span class="string">'rbf'</span>,</span><br><span class="line">    max_iter=<span class="number">-1</span>, probability=<span class="keyword">False</span>, random_state=<span class="keyword">None</span>, shrinking=<span class="keyword">True</span>,</span><br><span class="line">    tol=<span class="number">0.001</span>, verbose=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pickle</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = pickle.dumps(clf)       <span class="comment"># 保存模型</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>clf2 = pickle.loads(s)      <span class="comment"># 导入模型</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>clf2.predict(X[<span class="number">0</span>:<span class="number">1</span>])</span><br><span class="line">array([<span class="number">0</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 <h2 id="使用joblib模块"><a href="#使用joblib模块" class="headerlink" title="使用joblib模块"></a>使用joblib模块</h2><p>在特定情况下，用 <a href="https://joblib.readthedocs.io/en/latest/persistence.html" target="_blank" rel="noopener"><code>joblib</code></a> 替换 <code>pickle(dump &amp; load)</code> 可能更好。比如，在拟合的 scikit-learn estimators中，对象是大型的 <code>numpy</code> 数组，这种情形下更加高效。但是，仅能存储在磁盘中而不是字符串。</p>
@@ -333,8 +333,6 @@
 <p>[2] <a href="https://docs.python.org/3.6/library/pickle.html" target="_blank" rel="noopener">https://docs.python.org/3.6/library/pickle.html</a></p>
 <p>[3] <a href="https://joblib.readthedocs.io/en/latest/persistence.html" target="_blank" rel="noopener">https://joblib.readthedocs.io/en/latest/persistence.html</a></p>
 
-          
-        
       
     </div>
     
@@ -349,14 +347,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -366,10 +370,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -377,6 +382,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -397,8 +406,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -458,6 +476,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用pickle模块"><span class="nav-number">1.</span> <span class="nav-text">使用pickle模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用joblib模块"><span class="nav-number">2.</span> <span class="nav-text">使用joblib模块</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -598,6 +632,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

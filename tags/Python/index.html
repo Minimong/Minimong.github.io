@@ -81,7 +81,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="NOTELEKS&#39;s BLOG">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/Python/index.html">
 <meta property="og:site_name" content="NOTELEKS&#39;s BLOG">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -115,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/tags/Python/">
 
 
 
 
 
-  <title>NOTELEKS's BLOG</title>
+  <title>标签: Python | NOTELEKS's BLOG</title>
   
 
 
@@ -140,8 +140,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -214,160 +213,51 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-    
+
+  
+  
+  
+  <div class="post-block tag">
+
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>Python<small>标签</small>
+        </h1>
+      </div>
+
       
-
-  
-
-  
-  
-  
+        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/22/sklearn模型的保存和使用/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="NOTELEKS">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NOTELEKS's BLOG">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2019/01/22/sklearn模型的保存和使用/" itemprop="url">
+              
+                <span itemprop="name">sklearn 模型的保存和使用</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/22/sklearn模型的保存和使用/" itemprop="url">sklearn 模型的保存和使用</a></h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-22T17:01:05+08:00">
-                2019-01-22
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-01-22T17:01:05+08:00" content="2019-01-22">
+          01-22
+        </time>
+      </div>
 
-            
+    </header>
+  </article>
 
-            
-          </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/sklearn/" itemprop="url" rel="index">
-                    <span itemprop="name">sklearn</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在训练了 scikit-learn 模型后，希望保存模型以避免将来使用时重新训练。sklearn 提供了两种保存模型的方法，具体如下：</p>
-<h2 id="使用pickle模块"><a href="#使用pickle模块" class="headerlink" title="使用pickle模块"></a>使用pickle模块</h2><p>可以使用Python内置的 <a href="https://docs.python.org/3.6/library/pickle.html" target="_blank" rel="noopener"><code>pickle</code></a> 模块来保存 sklearn 中的模型：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>clf = svm.SVC(gamma=<span class="string">'scale'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>iris = datasets.load_iris()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>X, y = iris.data, iris.target</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>clf.fit(X, y)</span><br><span class="line">SVC(C=<span class="number">1.0</span>, cache_size=<span class="number">200</span>, class_weight=<span class="keyword">None</span>, coef0=<span class="number">0.0</span>,</span><br><span class="line">    decision_function_shape=<span class="string">'ovr'</span>, degree=<span class="number">3</span>, gamma=<span class="string">'scale'</span>, kernel=<span class="string">'rbf'</span>,</span><br><span class="line">    max_iter=<span class="number">-1</span>, probability=<span class="keyword">False</span>, random_state=<span class="keyword">None</span>, shrinking=<span class="keyword">True</span>,</span><br><span class="line">    tol=<span class="number">0.001</span>, verbose=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pickle</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = pickle.dumps(clf)       <span class="comment"># 保存模型</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>clf2 = pickle.loads(s)      <span class="comment"># 导入模型</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>clf2.predict(X[<span class="number">0</span>:<span class="number">1</span>])</span><br><span class="line">array([<span class="number">0</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-<h2 id="使用joblib模块"><a href="#使用joblib模块" class="headerlink" title="使用joblib模块"></a>使用joblib模块</h2><p>在特定情况下，用 <a href="https://joblib.readthedocs.io/en/latest/persistence.html" target="_blank" rel="noopener"><code>joblib</code></a> 替换 <code>pickle(dump &amp; load)</code> 可能更好。比如，在拟合的 scikit-learn estimators中，对象是大型的 <code>numpy</code> 数组，这种情形下更加高效。但是，仅能存储在磁盘中而不是字符串。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 保存模型</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> joblib <span class="keyword">import</span> dump, load</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dump(clf, <span class="string">'filename.joblib'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入模型</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>clf = load(<span class="string">'filename.joblib'</span>)</span><br></pre></td></tr></table></figure>
-<hr>
-<p><strong>参考资料：</strong></p>
-<p>[1] <a href="https://scikit-learn.org/stable/modules/model_persistence.html" target="_blank" rel="noopener">https://scikit-learn.org/stable/modules/model_persistence.html</a></p>
-<p>[2] <a href="https://docs.python.org/3.6/library/pickle.html" target="_blank" rel="noopener">https://docs.python.org/3.6/library/pickle.html</a></p>
-<p>[3] <a href="https://joblib.readthedocs.io/en/latest/persistence.html" target="_blank" rel="noopener">https://joblib.readthedocs.io/en/latest/persistence.html</a></p>
-
-          
-        
       
     </div>
-    
-    
-    
 
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
   
   
-  </article>
-
-
-    
-  </section>
 
   
 
